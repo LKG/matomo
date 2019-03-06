@@ -1306,7 +1306,13 @@ $.extend(DataTable.prototype, UIControl.prototype, {
             .each(function () {
                 setText(this, 'keep_totals_row', 'CoreHome_RemoveTotalsRowDataTable', 'CoreHome_AddTotalsRowDataTable');
             })
-            .click(generateClickCallback('keep_totals_row'));
+            .click(generateClickCallback('keep_totals_row', null, function () {
+                var newValue = self.param.keep_totals_row ? '0' : '1';
+                return {
+                    keep_totals_row: newValue,
+                    totals: newValue
+                }
+            }));
 
         $('.dataTableIncludeAggregateRows', domElem)
             .each(function () {
