@@ -1308,6 +1308,7 @@ $.extend(DataTable.prototype, UIControl.prototype, {
             })
             .click(generateClickCallback('keep_totals_row', null, function () {
                 var newValue = self.param.keep_totals_row ? '0' : '1';
+                self.param.keep_totals_row = self.param.totals = newValue;
                 return {
                     keep_totals_row: newValue,
                     totals: newValue
